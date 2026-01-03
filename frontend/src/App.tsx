@@ -201,6 +201,9 @@ interface ScanResult {
   reasons: string[];
 }
 
+// --- Constants ---
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:8000';
+
 function App() {
   const [text, setText] = useState<string>('');
   const [scanType, setScanType] = useState<'url' | 'email'>('url');
@@ -231,14 +234,14 @@ function App() {
           return;
         }
 
-        const response = await axios.post('http://127.0.0.1:8000/analyze/bulk', {
+        const response = await axios.post(`${API_BASE_URL}/analyze/bulk`, {
           texts: lines,
           scan_type: scanType
         });
         setBulkResults(response.data);
       } else {
         // Single Logic
-        const response = await axios.post('http://127.0.0.1:8000/analyze', {
+        const response = await axios.post(`${API_BASE_URL}/analyze`, {
           text: text,
           scan_type: scanType
         });
