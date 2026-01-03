@@ -35,7 +35,7 @@ import {
 } from '@mui/material';
 import {
   Search as SearchIcon,
-  Security as SecurityIcon,
+
   Warning as WarningIcon,
   CheckCircle as CheckCircleIcon,
   Shield as ShieldIcon,
@@ -256,7 +256,7 @@ function App() {
   };
 
   const handleTypeChange = (
-    event: React.MouseEvent<HTMLElement>,
+    _event: React.MouseEvent<HTMLElement>,
     newType: string | null,
   ) => {
     if (newType !== null) {
@@ -438,7 +438,7 @@ function App() {
 
             <Box component="form" noValidate autoComplete="off" onSubmit={(e) => { e.preventDefault(); handleAnalyze(); }}>
               <Grid container spacing={2} alignItems="top">
-                <Grid item xs={12}>
+                <Grid size={12}>
                   <TextField
                     fullWidth
                     multiline={isBulkMode || scanType === 'email'}
@@ -467,7 +467,7 @@ function App() {
                     }}
                   />
                 </Grid>
-                <Grid item xs={12}>
+                <Grid size={12}>
                   <Button
                     fullWidth
                     variant="contained"
@@ -614,7 +614,7 @@ function App() {
                     <Grid container spacing={6}>
 
                       {/* Score Gauge */}
-                      <Grid item xs={12} md={6}>
+                      <Grid size={{ xs: 12, md: 6 }}>
                         <Box sx={{ textAlign: 'center' }}>
                           <Typography variant="overline" color="text.secondary" sx={{ letterSpacing: 2 }}>THREAT PROBABILITY</Typography>
                           <Typography variant="h2" sx={{
@@ -659,7 +659,7 @@ function App() {
                       </Grid>
 
                       {/* Threat Analysis Details */}
-                      <Grid item xs={12} md={6}>
+                      <Grid size={{ xs: 12, md: 6 }}>
                         <Typography variant="overline" color="text.secondary" sx={{ letterSpacing: 2, display: 'block', mb: 2 }}>
                           THREAT ANALYSIS REPORT
                         </Typography>
